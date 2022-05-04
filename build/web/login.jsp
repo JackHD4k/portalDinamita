@@ -9,26 +9,31 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+        <script src="js/bootstrap.min.js"></script>
         <title>Login</title>
     </head>
-    <body>
-        <form class="container mx-5 my-5" style="border-style: solid; border-color: #45c872">
+    <body class="container" style="background-color: #f0f4f7">
+        <form class="mt-5 px-5 pt-5" style="border-style: solid; border-color: #157347;background-color: white">
+            <h1 class="text-center">Iniciar sesión</h1>
+            <img class="d-block mx-auto my-5" src="img/login_user.png" alt="login_user" style="height: 180px" />
             <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label">Email address</label>
-                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                <label class="form-label">Usuario:</label>
+                <input type="text" class="form-control">
             </div>
             <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1">
+                <label class="form-label">Contraseña:</label>
+                <input type="password" class="form-control">
             </div>
-            <div class="mb-3 form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+            <div class="d-grid mx-auto">
+                <button type="submit" class="btn btn-success m-5">Iniciar sesión</button>
             </div>
-            <button type="submit" class="btn btn-success">Submit</button>
         </form>
+        <footer class="py-3 fixed-bottom text-center" style="background-color: #1e2225">
+            <span class="text-muted">
+                Equipo Dinamita
+            </span>
+        </footer>
     </body>
 </html>
