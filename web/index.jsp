@@ -73,9 +73,9 @@
                             </div>
                         </div>
                         <div class="text-center">
-                            <button type="submit" class="btn btn-dark border-0 mb-4 rounded" style="background-color: #f51d46">
+                            <a href="login.jsp" class="btn btn-dark border-0 mb-4 rounded" style="background-color: #f51d46">
                                 Cerrar sesión
-                            </button>
+                            </a>
                         </div>
                         <div class="" style="height: 15px;margin-top: 140px">
                             <hr>

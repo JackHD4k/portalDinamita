@@ -46,7 +46,7 @@
             </form>
             <p class="mt-3 lead">Si no se acuerda de su contraseña puede comunicarse con nuestra área de soporte al cliente <3</p>
         </div>
-        <footer class="py-3 fixed-bottom text-center" style="background-color: #1e2225">
+        <footer class="py-3 text-center" style="background-color: #1e2225">
             <span class="text-muted">
                 Equipo Dinamita
             </span>
