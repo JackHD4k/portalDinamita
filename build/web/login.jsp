@@ -44,7 +44,7 @@
                     </button>
                 </div>
             </form>
-            <p class="mt-3 lead">Si no se acuerda de su contraseña puede comunicarse con nuestra área de soporte al cliente <3</p>
+            <p class="mt-3 lead">Si no se acuerda de su contraseña puede comunicarse con nuestra área de <a href="https://api.whatsapp.com/send?phone=34123456789&text=hola,%20qué%20tal?">soporte al cliente.</a></p>
         </div>
         <footer class="py-3 text-center" style="background-color: #1e2225">
             <span class="text-muted">
