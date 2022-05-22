@@ -4,6 +4,11 @@
     Author     : joelr
 --%>
 
+
+<%@page import="java.sql.Statement"%>
+<%@page import="java.sql.DriverManager"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.Connection"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -18,6 +23,11 @@
         <script src="js/bootstrap.bundle.min.js"></script>
     </head>
     <body style="background: #232228; color: #c2c2c3; font-family: 'Lato'">
+        <%
+            Connection con = null;
+            Statement st = null;
+            ResultSet rs = null;
+        %>
         <!-- 
         #####################
         Header
@@ -111,21 +121,25 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                <%
+                                    try {
+                                        Class.forName("com.mysql.jdbc.Driver");
+                                        con = DriverManager.getConnection("jdbc:mysql://localhost/app?user=root&password=123890");
+                                        st = con.createStatement();
+                                        rs = st.executeQuery("select s.IDE_USU ,s.IDE_SER, s.VAL_SUS  from suscripcion s ;");
+                                        while (rs.next()) {
+                                %>
                                 <tr>
-                                    <th scope="row">1</th>
-                                    <td>Netflix</td>
-                                    <td>10.00</td>
+                                    <th scope="row"><%= rs.getString(1) %></th>
+                                    <td><%= rs.getString(2) %></td>
+                                    <td><%= rs.getString(3) %>.00</td>
                                 </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>HBO</td>
-                                    <td>10.00</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td>Hostinger</td>
-                                    <td>05.00</td>
-                                </tr>
+                                <%
+                                        }
+                                    } catch (Exception e) {
+                                        out.print("error de mysql"+e);
+                                    }
+                                %>
                             </tbody>
                         </table>
                     </div>
@@ -144,9 +158,10 @@
                             <p class="text-center fs-2 mb-4">Registrar suscripción</p>
                             <div class="mb-3">
                                 <p class="form-label">Seleccione una suscripción:</p>
+
                                 <select class="form-select border-0 border-success" style="background-color: #232228; color: #acafb9">
                                     <option selected>Seleccionar</option>
-                                    <option value="1">HBO</option>
+                                    <option value="1">Netflix</option>
                                     <option value="2">Hostinger</option>
                                     <option value="3">Display plus</option>
                                     <option value="4">Spotify</option>
@@ -166,6 +181,7 @@
                             <div class="mb-3">
                                 <p class="form-label">Categoria:</p>
                                 <select class="form-select border-0 border-success" style="background-color: #232228; color: #acafb9">
+
                                     <option selected>Seleccionar</option>
                                     <option value="1">Música</option>
                                     <option value="2">Hosting</option>
