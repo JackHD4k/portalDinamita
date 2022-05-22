@@ -15,6 +15,8 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
         <script src="js/bootstrap.bundle.min.js"></script>
+        <script src="js/script.js"></script>
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <title>Login</title>
     </head>
     <body class="text-center container" style="background: #232228; color: #c2c2c3; font-family: 'Lato'">
@@ -25,21 +27,21 @@
             </header>
         </div>
         <div class="form-signin mx-5">
-            <form class="mt-4 px-5 pt-5 mx-5" style="border-style: solid; border-color: #f51d46; background-color: #2a292f">
+            <form action="" class="mt-4 px-5 pt-5 mx-5" style="border-style: solid; border-color: #f51d46; background-color: #2a292f">
                 <h1 class="text-center">Iniciar sesión</h1>
                 <img class="d-block mx-auto my-5" src="img/login_user.png" alt="login_user" style="height: 150px" />
                 <!-- USUARIO -->
                 <div class="mb-3 w-50 mx-auto">
                     <label class="form-label">Usuario:</label>
-                    <input type="text" class="form-control">
+                    <input type="text" id="email" class="form-control">
                 </div>
                 <!-- CONTRASEÑA -->
                 <div class="mb-3 w-50 mx-auto">
                     <label class="form-label">Contraseña:</label>
-                    <input type="password" class="form-control">
+                    <input type="password" id="password" class="form-control">
                 </div>
                 <div class="d-grid w-25 mx-auto">
-                    <button type="submit" class="btn btn-dark border-0 m-4 rounded" style="background-color: #f51d46">
+                    <button type="button" onclick="getData()" class="btn btn-dark border-0 m-4 rounded" style="background-color: #f51d46">
                         Registrar
                     </button>
                 </div>

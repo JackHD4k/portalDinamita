@@ -4,11 +4,6 @@
     Author     : joelr
 --%>
 
-
-<%@page import="java.sql.Statement"%>
-<%@page import="java.sql.DriverManager"%>
-<%@page import="java.sql.ResultSet"%>
-<%@page import="java.sql.Connection"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -21,13 +16,9 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
         <script src="js/bootstrap.bundle.min.js"></script>
+        <script src="js/script.js"></script>
     </head>
     <body style="background: #232228; color: #c2c2c3; font-family: 'Lato'">
-        <%
-            Connection con = null;
-            Statement st = null;
-            ResultSet rs = null;
-        %>
         <!-- 
         #####################
         Header
@@ -53,7 +44,7 @@
                         <div class="text-center">
                             <p class="fs-2 mt-4">Usuario</p>
                             <img class="d-block mx-auto my-5" src="img/login_user.png" alt="login_user" style="height: 90px" />
-                            <p>Joel Isaac Ramos Córdova</p>
+                            <p>Pepito</p>
                         </div>
                         <div class="dropdown my-5">
                             <button class="btn btn-secondary dropdown-toggle mx-3" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -112,7 +103,7 @@
                             <hr style="background-color: #f51d46">
                         </div>
                         <p class="mx-3">Suscripciones:</p>
-                        <table class="table" style="color: #c2c2c3">
+                        <table class="table" id="tablasuscripciones" style="color: #c2c2c3">
                             <thead>
                                 <tr class="col">
                                     <th class="col-2" scope="col">#</th>
@@ -120,26 +111,8 @@
                                     <th class="col-2" scope="col">Precio</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <%
-                                    try {
-                                        Class.forName("com.mysql.jdbc.Driver");
-                                        con = DriverManager.getConnection("jdbc:mysql://localhost/app?user=root&password=123890");
-                                        st = con.createStatement();
-                                        rs = st.executeQuery("select s.IDE_USU ,s.IDE_SER, s.VAL_SUS  from suscripcion s ;");
-                                        while (rs.next()) {
-                                %>
-                                <tr>
-                                    <th scope="row"><%= rs.getString(1) %></th>
-                                    <td><%= rs.getString(2) %></td>
-                                    <td><%= rs.getString(3) %>.00</td>
-                                </tr>
-                                <%
-                                        }
-                                    } catch (Exception e) {
-                                        out.print("error de mysql"+e);
-                                    }
-                                %>
+                            <tbody id="tbody">
+
                             </tbody>
                         </table>
                     </div>
@@ -159,7 +132,7 @@
                             <div class="mb-3">
                                 <p class="form-label">Seleccione una suscripción:</p>
 
-                                <select class="form-select border-0 border-success" style="background-color: #232228; color: #acafb9">
+                                <select class="form-select border-0 border-success" id="categorias" onchange="setcategorias" style="background-color: #232228; color: #acafb9">
                                     <option selected>Seleccionar</option>
                                     <option value="1">Netflix</option>
                                     <option value="2">Hostinger</option>
@@ -169,7 +142,6 @@
                                     <option value="6">Tidal</option>
                                     <option value="7">Edelnor</option>
                                     <option value="8">Udemy</option>
-                                    <option value="9">Udemy</option>
                                 </select>
                                 <p class="mt-2">o agregue el suyo</p>
                                 <input type="text" class="form-control border-0" style="background-color: #232228; color: #acafb9">
@@ -254,7 +226,7 @@
                                 <p>Precio de la suscripción:</p>
                                 <input type="number" class="form-control border-0" style="background-color: #232228; color: #acafb9">
                             </div>
-                            <button type="submit" class="btn btn-dark border-0 mb-4 rounded" style="background-color: #f51d46">
+                            <button type="button" onclick="addRow()" class="btn btn-dark border-0 mb-4 rounded" style="background-color: #f51d46">
                                 Registrar
                             </button>
                         </form>
