@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/JavaScript.js to edit this template
  */
 
+var total = 0;
 
 function verificarContraseña() {
     var contraseña = document.getElementById("password").value;
@@ -16,28 +17,63 @@ function verificarContraseña() {
             confirmButtonText: 'Aceptar'
         })
     }
-};
+}
+;
 
-function addRow(){
-    var select = document.getElementById("setcategorias");
-    var option = select.options[select.selectedIndex];
-    
-    Console.log(option.text)
-    
-    
-    
-    
-    var t1 = document.getElementById("tablasuscripciones");
-    var tbody = document.getElementById("tbody");
-    
-    var row1 = document.createElement("TR");
-    
-    for(var i=0;i<6;i++){
-        var col1 = document.createElement("TD");
-        col1.innerHTML = "<font color='red'>1212</font>";
-        
-        row1.appendChild(col1);
+function registrarSuscripcion() {
+    //Suscripción
+    var seleccion = document.getElementById("suscripciones");
+    var valordesuscripcion = seleccion.selectedOptions[0].value;
+
+    if (valordesuscripcion === "Seleccionar") {
+        valordesuscripcion = document.getElementById("categoriasnueva").value;
     }
-    tbody.appendChild(row1);
-    t1.appendChild(tbody);
+
+    //Moneda
+    var seleccion_moneda = document.getElementById("moneda");
+    var tipo_moneda = seleccion_moneda.selectedOptions[0].value;
+    var precio = document.getElementById("precioSus").value;
+    if (tipo_moneda === "2") {
+        precio *= 3;
+    } else if (tipo_moneda === "3") {
+        precio *= 4;
+    }
+
+    //Recordatorio
+    var recordatorio = document.getElementById("fechaFinal").value;
+    if (recordatorio === "2022-05-23") {
+
+        //Agregar una suscripción
+        var fila = "<tr><td>" + valordesuscripcion + "</td><td>" + precio + "</td></tr>";
+        var btn = document.createElement("TR");
+        btn.innerHTML = fila;
+        document.getElementById("tablasuscripciones").appendChild(btn);
+
+        Swal.fire({
+            title: 'ALERTA!',
+            text: 'Hoy se debe pagar una suscripción',
+            icon: 'warning',
+            confirmButtonText: 'Ok'
+        })
+    } else {
+
+        //Agregar una suscripción
+        var fila = "<tr><td>" + valordesuscripcion + "</td><td>" + precio + "</td></tr>";
+        var btn = document.createElement("TR");
+        btn.innerHTML = fila;
+        document.getElementById("tablasuscripciones").appendChild(btn);
+
+        //Alerta
+        Swal.fire({
+            title: 'Agregado!',
+            text: 'Suscripción agregado exitosamente',
+            icon: 'success',
+            confirmButtonText: 'Ok'
+        })
+    }
+
+    //Balance total
+    total = total + parseFloat(precio);
+    var balance = document.getElementById("balance_total").textContent = "S/. " + total;
+    var mensual = document.getElementById("pagoMensual").textContent= "S/. "+total;
 }

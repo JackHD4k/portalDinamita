@@ -41,12 +41,12 @@
                     <input type="password" id="password" class="form-control">
                 </div>
                 <div class="d-grid w-25 mx-auto">
-                    <button type="button" onclick="getData()" class="btn btn-dark border-0 m-4 rounded" style="background-color: #f51d46">
-                        Registrar
+                    <button type="button" onclick="verificarContraseña()" class="btn btn-dark border-0 m-4 rounded" style="background-color: #f51d46">
+                        Ingresar
                     </button>
                 </div>
             </form>
-            <p class="mt-3 lead">Si no se acuerda de su contraseña puede comunicarse con nuestra área de <a href="https://api.whatsapp.com/send?phone=34123456789&text=hola,%20qué%20tal?">soporte al cliente.</a></p>
+            <p class="mt-3 lead">Si no se acuerda de su contraseña o quiere crear una nueva puede comunicarse con nuestra área de <a href="https://api.whatsapp.com/send?phone=34123456789&text=hola,%20qué%20tal?">soporte al cliente.</a></p>
         </div>
         <footer class="py-3 text-center" style="background-color: #1e2225">
             <span class="text-muted">

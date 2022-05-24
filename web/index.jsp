@@ -16,6 +16,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
         <script src="js/bootstrap.bundle.min.js"></script>
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script src="js/script.js"></script>
     </head>
     <body style="background: #232228; color: #c2c2c3; font-family: 'Lato'">
@@ -68,7 +69,7 @@
                             <div class="container my-4">
                                 <div class="card m-2" style="width: 18rem; background-color: #393840">
                                     <div class="card-body text-center">
-                                        <h5 class="card-title">S/ 25.00</h5>
+                                        <h5 class="card-title" id="pagoMensual"></h5>
                                     </div>
                                 </div>
                             </div>
@@ -98,7 +99,7 @@
                         <div class="mx-3">
                             <p>Balance total:
                                 <br> 
-                                <span>S./ 25.00</span>
+                                <span id="balance_total"></span>
                             </p>
                             <hr style="background-color: #f51d46">
                         </div>
@@ -106,7 +107,6 @@
                         <table class="table" id="tablasuscripciones" style="color: #c2c2c3">
                             <thead>
                                 <tr class="col">
-                                    <th class="col-2" scope="col">#</th>
                                     <th class="col-8" scope="col">Nombre</th>
                                     <th class="col-2" scope="col">Precio</th>
                                 </tr>
@@ -132,19 +132,19 @@
                             <div class="mb-3">
                                 <p class="form-label">Seleccione una suscripción:</p>
 
-                                <select class="form-select border-0 border-success" id="categorias" onchange="setcategorias" style="background-color: #232228; color: #acafb9">
+                                <select class="form-select border-0 border-success" id="suscripciones" style="background-color: #232228; color: #acafb9">
                                     <option selected>Seleccionar</option>
-                                    <option value="1">Netflix</option>
-                                    <option value="2">Hostinger</option>
-                                    <option value="3">Display plus</option>
-                                    <option value="4">Spotify</option>
-                                    <option value="5">Amazon Prime Video</option>
-                                    <option value="6">Tidal</option>
-                                    <option value="7">Edelnor</option>
-                                    <option value="8">Udemy</option>
+                                    <option value="Netflix">Netflix</option>
+                                    <option value="Hostinger">Hostinger</option>
+                                    <option value="Disney plus">Disney plus</option>
+                                    <option value="Spotify">Spotify</option>
+                                    <option value="Amazon Prime Video">Amazon Prime Video</option>
+                                    <option value="Tidal">Tidal</option>
+                                    <option value="Edelnor">Edelnor</option>
+                                    <option value="Udemy">Udemy</option>
                                 </select>
                                 <p class="mt-2">o agregue el suyo</p>
-                                <input type="text" class="form-control border-0" style="background-color: #232228; color: #acafb9">
+                                <input type="text" id="categoriasnueva" class="form-control border-0" style="background-color: #232228; color: #acafb9">
                             </div>
                             <!--
                             #####################
@@ -189,7 +189,7 @@
                             -->
                             <div class="mb-3">
                                 <p>Fin de la suscripción</p>
-                                <input type="date" name="dateinicio" style="background-color: #232228; color: #acafb9">
+                                <input type="date" id="fechaFinal" name="dateinicio" style="background-color: #232228; color: #acafb9">
                             </div>
                             <!-- 
                             #####################
@@ -211,7 +211,7 @@
                             -->
                             <div class="mb-3">
                                 <p>Moneda:</p>
-                                <select class="form-select border-0 border-success" style="background-color: #232228; color: #acafb9">
+                                <select class="form-select border-0 border-success" id="moneda" style="background-color: #232228; color: #acafb9">
                                     <option selected>Seleccionar</option>
                                     <option value="1">Soles</option>
                                     <option value="2">Dólar</option>
@@ -224,9 +224,9 @@
                             -->
                             <div class="mb-3">
                                 <p>Precio de la suscripción:</p>
-                                <input type="number" class="form-control border-0" style="background-color: #232228; color: #acafb9">
+                                <input type="number" id="precioSus" class="form-control border-0" style="background-color: #232228; color: #acafb9">
                             </div>
-                            <button type="button" onclick="addRow()" class="btn btn-dark border-0 mb-4 rounded" style="background-color: #f51d46">
+                            <button type="button" onclick="registrarSuscripcion()" class="btn btn-dark border-0 mb-4 rounded" style="background-color: #f51d46">
                                 Registrar
                             </button>
                         </form>
