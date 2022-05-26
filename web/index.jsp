@@ -45,7 +45,7 @@
                         <div class="text-center">
                             <p class="fs-2 mt-4">Usuario</p>
                             <img class="d-block mx-auto my-5" src="img/login_user.png" alt="login_user" style="height: 90px" />
-                            <p>Pepito</p>
+                            <p>TepoTepo</p>
                         </div>
                         <div class="dropdown my-5">
                             <button class="btn btn-secondary dropdown-toggle mx-3" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
