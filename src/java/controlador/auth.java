@@ -21,5 +21,13 @@ public class auth {
                 String noti = "/script()";
             }
         }
+        
+        public void notificaciónbd(){
+            String nombre = "document.input.nombre";
+            String auth = "auth.database.app.dbc.mysql";
+            if (nombre == auth) {
+                String exec = "/autenticacionConBasedeDatos()";
+            }
+        }
     }
 }

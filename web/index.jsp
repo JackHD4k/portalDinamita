@@ -45,7 +45,7 @@
                         <div class="text-center">
                             <p class="fs-2 mt-4">Usuario</p>
                             <img class="d-block mx-auto my-5" src="img/login_user.png" alt="login_user" style="height: 90px" />
-                            <p>TepoTepo</p>
+                            <p onclick="validarbd()">cesar</p>
                         </div>
                         <div class="dropdown my-5">
                             <button class="btn btn-secondary dropdown-toggle mx-3" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -53,14 +53,13 @@
                             </button>
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                 <li><a class="dropdown-item" href="#">Entretenimiento</a></li>
-                                <li><a class="dropdown-item" href="#">Música</a></li>
                                 <li><a class="dropdown-item" href="#">Educación</a></li>
                             </ul>
                         </div>
                         <div class="container my-5">
                             <div class="card m-2 mb-5" style="width: 18rem; background-color: #393840">
                                 <div class="card-body text-center">
-                                    <h5 class="card-title">S/ 20.00</h5>
+                                    <h5 class="card-title" id="pagoCategoria"></h5>
                                 </div>
                             </div>
                         </div>

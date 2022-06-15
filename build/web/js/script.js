@@ -41,7 +41,7 @@ function registrarSuscripcion() {
 
     //Recordatorio
     var recordatorio = document.getElementById("fechaFinal").value;
-    if (recordatorio === "2022-05-23") {
+    if (recordatorio === "2022-06-08") {
 
         //Agregar una suscripción
         var fila = "<tr><td>" + valordesuscripcion + "</td><td>" + precio + "</td></tr>";
@@ -75,5 +75,13 @@ function registrarSuscripcion() {
     //Balance total
     total = total + parseFloat(precio);
     var balance = document.getElementById("balance_total").textContent = "S/. " + total;
-    var mensual = document.getElementById("pagoMensual").textContent= "S/. "+total;
+    var mensual = document.getElementById("pagoMensual").textContent = "S/. " + total;
+    var categoria = document.getElementById("pagoCategoria").textContent = "S/. "+ total;
+}
+
+function validarbd() {
+    Swal.fire({
+        title: 'Conectado a la base de datos!',
+        icon: 'success'
+    })
 }
